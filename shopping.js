@@ -17,7 +17,7 @@ const list = [
     {
         id: 4,
         item: "Chicken Breast",
-        price: 7.99,
+        price: 8.99,
     },
     {
         id: 5,
@@ -36,8 +36,12 @@ const list = [
     }
 ]
 
-const addToShoppingList = (item, id) => {
-    item.id = id;
+const addToShoppingList = (item) => {
+    const lastIndex = list.length - 1
+    const currentLastItem = list[lastIndex]
+    const maxId = currentLastItem.id
+    const idForNewItem = maxId + 1
+    item.id = idForNewItem
     list.push(item);
 }
 
@@ -47,7 +51,13 @@ const newItem = {
     price: 4.99,
 }
 
-addToShoppingList(newItem, 8)
+addToShoppingList(newItem)
 
-console.log(list)
+// console.log(list)
 
+for (const item of list) {
+    if (item.price > 8.00) {
+        console.log(item)
+    }
+    
+}
